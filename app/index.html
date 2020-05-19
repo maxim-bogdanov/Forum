@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forum</title>
+  <link rel="stylesheet" href="css/libs.min.css">
+  <link rel="stylesheet" href="css/style.min.css">
+</head>
+<body>
+
+  <div class="page">
+    <aside class="sidebar">
+
+      <div class="sidebar__hide"></div>
+
+      <!-- выполнена анимация для бургер меню -->
+      <div class="sidebar__button">
+        <div class="sidebar__button-line"> </div>
+      </div>
+
+      <div class="sidebar__touch">
+        <div class="sidebar__menu">
+          <nav class="sidebar__menu-nav">
+            <ul class="sidebar__menu-list">
+              <li class="sidebar__menu-item"><a href="#" class="sidebar__menu-link">1</a></li>
+              <li class="sidebar__menu-item"><a href="#" class="sidebar__menu-link">2</a></li>
+              <li class="sidebar__menu-item"><a href="#" class="sidebar__menu-link">3</a></li>
+              <li class="sidebar__menu-item"><a href="#" class="sidebar__menu-link">4</a></li>
+              <li class="sidebar__menu-item"><a href="#" class="sidebar__menu-link">5</a></li>
+            </ul>
+          </nav>
+        </div>
+        <a href="#" class="sidebar__search"><img src="img/loupe.png" alt="Поиск" class="sidebar__search-img"></a>
+      </div>
+
+      <div class="sidebar__icons">
+        <a href="#" class="sidebar__icon-link"><img src="img/icon1.png" alt="" class="sidebar__icon"></a>
+        <a href="#" class="sidebar__icon-link"><img src="img/icon2.png" alt="" class="sidebar__icon"></a>
+        <a href="#" class="sidebar__icon-link"><img src="img/icon3.png" alt="" class="sidebar__icon"></a>
+        <a href="#" class="sidebar__icon-link"><img src="img/icon4.png" alt="" class="sidebar__icon"></a>
+      </div>
+    </aside>
+    
+    <main class="main">
+      <header class="header">
+        <div class="container">
+          <div class="header-top">
+
+            <a href="#" class="header__arrow-btn"><img src="img/arrow.png" alt=""></a>
+
+            <!-- макет в разных разрешениях имеет разные логотипы, и логотипы, которые можно
+            задать текстом и накинуть стилей, заданы картинкой.
+            я подумал, что такая задача была поставлена, чтобы я мог продемонстрировать свою работу
+            с медиазпросами или js. Я решил написать логику на медиазапросах, но решение этой задачи есть
+            и на js, но только оно закомментировано -->
+
+            <div class="logo">
+              <img src="img/logo__title1600.png" alt="" class="logo__title logo1600">
+              <!-- их не писать  в html, если решать через js (решение закомментировано) -->
+              <img src="img/logo__title1024.png" alt="" class="logo__title logo1024">
+              <img src="img/logo__title375.png" alt="" class="logo__title logo375">
+
+              <img src="img/logo__img1600.png" alt="" class="logo__img logo1600">
+              <!-- их не писать  в html, если решать через js (решение закомментировано) -->
+              <img src="img/logo__img1024.png" alt="" class="logo__img logo1024"> 
+              <img src="img/logo__img375.png" alt="" class="logo__img logo375">        
+            </div>
+
+            <div class="header__menu">
+              <nav class="header__menu-nav">
+                <ul class="header__menu-list">
+                  <li class="header__menu-item"><a href="#" class="header__menu-link">О форуме</a></li>
+                  <li class="header__menu-item"><a href="#" class="header__menu-link">Проекты</a></li>
+                  <li class="header__menu-item"><a href="#" class="header__menu-link">Пресс-центр</a></li>
+                  <li class="header__menu-item"><a href="#" class="header__menu-link">Мероприятия</a></li>
+                  <li class="header__menu-item"><a href="#" class="header__menu-link">Контакты</a></li>
+                  <li class="header__menu-item"><a href="#" class="header__menu-link">Реестр женских организаций</a></li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+          <!-- для решения на js надо добавить класс header__descr--active -->
+          <div class="header__descr">
+            Глобальная платформа ЕЖФ была создана при поддержке Совета Федерации Федерального 
+            собрания РФ и Фонда Инносоциум – социальной платформы Фонда Росконгресс
+          </div>
+          <!-- его не писать  в html, если решать через js (решение закомментировано) -->
+          <img src="img/header__descr.png" class="header__descr-img">
+        </div>
+      </header>
+
+      <section class="form-reg">
+        <div class="container">
+
+          <h2 class="title">Добавить организацию в реестр</h2>
+
+          <form id="form" class="form" action="/#" method="post" novalidate>
+            <div class="form__inputs">
+              <div class="form__info-block">
+                <h3 class="sub-title">Основная информация</h3>
+
+                <div class="form__item-wrap">
+                  <div class="form__item">
+                    <label for="name" class="form__item-label">
+                      <input type="text" name="name" id="name" class="form__item-input" placeholder="Газпром" maxlength="50" value>
+                      <div class="form__item-placeholder placeholder-necessary">Полное название организации</div>
+                    </label>
+                  </div>
+                  <div class="form__item-message">Описание ошибки</div>
+                </div>
+
+                <div class="form__item-wrap">
+                  <div class="form__item">
+                    <label for="pravo" class="form__item-label">
+                      <input type="text" name="pravo" id="pravo" class="form__item-input" placeholder="Форма" maxlength="50" value>
+                      <div class="form__item-placeholder ">Организационно-правовая форма</div>
+                    </label>
+                  </div>
+                  <!-- <div class="form__item-message">Описание ошибки</div> если захотим сделать поле обязательным  -->
+                </div>
+
+                <div class="form__items">
+                  <div class="form__item-wrap">
+                    <div class="form__item">
+                      <label for="date" class="form__item-label">
+                        <input type="text" name="date" id="date" class="form__item-input form__item-input--active" value>
+                        <div class="form__item-placeholder form__item-placeholder--active placeholder-necessary">Дата создания (ден / мес / год)</div>
+                      </label>
+                    </div>
+                    <div class="form__item-message">Описание ошибки</div>
+                  </div>
+
+                  <div class="form__item-wrap">
+                    <div class="form__item">
+                      <label for="ogrn" class="form__item-label">
+                        <input type="text" name="ogrn" id="ogrn" class="form__item-input" placeholder="1231231231231"  maxlength="13" value>
+                        <div class="form__item-placeholder">ОГРН</div>
+                      </label>
+                    </div>
+                    <!-- <div class="form__item-message">Описание ошибки</div>если захотим сделать поле обязательным -->
+                  </div>
+                </div>
+
+                <div class="form__item-wrap">
+                  <div class="form__item">
+                    <label for="fio" class="form__item-label">
+                      <input type="text" name="fio" id="fio" class="form__item-input" placeholder="Иванов Иван Иванович" maxlength="50"  value>
+                      <div class="form__item-placeholder ">ФИО руководителя</div>
+                    </label>
+                  </div>
+                  <!-- <div class="form__item-message">Описание ошибки</div> если захотим сделать поле обязательным  -->
+                </div>
+
+                <div class="form__item-wrap">
+                  <div class="form__item">
+                    <label for="adress" class="form__item-label">
+                      <input type="text" name="adress" id="adress" class="form__item-input" placeholder="ул. Некрасова, д. 54, кв. 13" maxlength="50" value>
+                      <div class="form__item-placeholder ">Адрес организации</div>
+                    </label>
+                  </div>
+                  <!-- <div class="form__item-message">Описание ошибки</div> если захотим сделать поле обязательным  -->
+                </div>
+
+                <div class="form__item-wrap">
+                  <div class="form__item">
+                    <label for="region" class="form__item-label">
+                      <input type="text" name="region" id="region" class="form__item-input" placeholder="Кострома, Ярославль, Иваново" maxlength="50" value>
+                      <div class="form__item-placeholder ">Регионы действия организации</div>
+                    </label>
+                  </div>
+                  <!-- <div class="form__item-message">Описание ошибки</div> если захотим сделать поле обязательным  -->
+                </div>
+
+                <div class="form__items">
+                  <div class="form__item-wrap">
+                    <div class="form__item">
+                      <label for="doing" class="form__item-label">
+                        <input type="text" name="doing" id="doing" class="form__item-input" placeholder="Программирование" maxlength="50" value>
+                        <div class="form__item-placeholder ">Направление деятельности</div>
+                      </label>
+                    </div>
+                    <!-- <div class="form__item-message">Описание ошибки</div> если захотим сделать поле обязательным  -->
+                  </div>
+                </div>
+              </div>
+
+              <div class="form__info-block">
+                <h3 class="sub-title">Контактная информация</h3>
+
+                <div class="form__items">
+                  <div class="form__item-wrap">
+                    <div class="form__item">
+                      <label for="tel" class="form__item-label">
+                        <input type="tel" name="tel" id="tel" class="form__item-input form__item-input--active" value>
+                        <div class="form__item-placeholder form__item-placeholder--active placeholder-necessary ">Телефон организации</div>
+                      </label>
+                    </div>
+                    <div class="form__item-message">Описание ошибки</div>
+                  </div>
+
+                  <div class="form__item-wrap">
+                    <div class="form__item">
+                      <label for="web" class="form__item-label">
+                        <input type="text" name="web" id="web" class="form__item-input" placeholder="google.com" maxlength="50" value>
+                        <div class="form__item-placeholder ">Веб сайт</div>
+                      </label>
+                    </div>
+                    <!-- <div class="form__item-message">Описание ошибки</div>если захотим сделать поле обязательным -->
+                  </div>
+                </div>
+
+                <div class="form__item-small">
+                  <div class="form__item-wrap">
+                    <div class="form__item">
+                      <label for="email" class="form__item-label">
+                        <input type="email" name="email" id="email" class="form__item-input" placeholder="hello@mail.ru" maxlength="50" value>
+                        <div class="form__item-placeholder placeholder-necessary">E-mail организации</div>
+                      </label>
+                    </div>
+                    <div class="form__item-message">Описание ошибки</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form__info-block">
+                <h3 class="sub-title">Дополнительная информация</h3>
+
+                <div class="form__item-wrap">
+                  <div class="form__item">
+                    <label for="blago" class="form__item-label">
+                      <input type="text" name="blago" id="blago" class="form__item-input" placeholder="Спортсмены" maxlength="50" value>
+                      <div class="form__item-placeholder ">Категория благополучателей</div>
+                    </label>
+                  </div>
+                  <!-- <div class="form__item-message">Описание ошибки</div> если захотим сделать поле обязательным  -->
+                </div>
+
+                <div class="form__item-wrap">
+                  <div class="form__item">
+                    <label for="relax" class="form__item-label">
+                      <input type="text" name="relax" id="relax" class="form__item-input" placeholder="Контест2020" maxlength="50" value>
+                      <div class="form__item-placeholder ">Проводимые и реализованные мероприятия</div>
+                    </label>
+                  </div>
+                  <!-- <div class="form__item-message">Описание ошибки</div> если захотим сделать поле обязательным  -->
+                </div>
+
+                <div class="form__item-wrap">
+                  <div class="form__item">
+                    <label for="about" class="form__item-label">
+                      <textarea name="about" id="about" cols="30" rows="10" class="form__item-input form__items-textarea"></textarea>
+                      <div class="form__item-placeholder ">Кратко об организации</div>
+                    </label>
+                  </div>
+                  <!-- <div class="form__item-message">Описание ошибки</div> если захотим сделать поле обязательным  -->
+                </div>
+              </div>
+            </div>
+
+            <div class="form__footer">
+              <button type="submit" class="form__footer-submit">Отправить заявку</button>
+              <div class="form__footer-text">
+                <span class="form__footer-span">Все поля формы обязательны для заполнения.</span>
+                <span class="form__footer-span">Нажимая на эту кнопку, я даю согласие на <a href="#" class="form__footer-link">обработку персональных данных</a></span>
+              </div>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+  </div>
+<script src="https://unpkg.com/imask"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

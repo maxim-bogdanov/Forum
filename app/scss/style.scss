@@ -1,0 +1,746 @@
+@import "vars";
+@import "fonts";
+@import "global";
+@import "media";
+
+.page {
+  max-width: 1600px;
+  margin: 0 auto;
+  display: flex;
+  @include w600 {
+    flex-direction: column;
+  }
+}
+
+.sidebar {
+  min-width: 100px;
+  position: relative;
+
+  @include w1024 {
+    min-width: 80px;
+  }
+
+  @include w768 {
+    min-width: 60px;
+  }
+}
+
+.sidebar__hide {
+  height: 65px;
+  min-width: 100%;
+  background-color: white;
+  position: absolute;
+  z-index: 3;
+
+  @include w1024 {
+    height: 50px;
+  }
+
+  @include w600 {
+    height: 40px;
+    min-width: 70px;
+    right: 0;
+  }
+}
+
+.sidebar__button {
+  width: 30px;
+  height: 20px;
+  margin: 45px auto 0 auto;
+  position: relative;
+  z-index: 3;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); // убираем синюю обводку
+  background-color: #fff;
+  cursor: pointer;
+  
+  @include w1024 {
+    margin-top: 30px;
+  }
+
+  @include w600 {
+    margin: 20px 20px 20px auto;
+  }
+}
+
+.sidebar__button-line {
+  width: 30px;
+  height: 2px;
+  background-color: #000;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+  &:after {
+    content: "";
+    position: absolute;
+    background-color: #000;
+    width: 30px;
+    height: 2px;
+    bottom: 8px;
+    transition: all 0.2s;
+  }
+
+  &:before {
+    content: "";
+    position: absolute;
+    background-color: #000;
+    width: 30px;
+    height: 2px;
+    top: 8px;
+    transition: all 0.2s;
+  }
+
+  &--active { // анимация для бургер-меню
+    height: 0;
+
+    &:after {
+      width: 34px;
+      transform-origin: left bottom;
+      transform: rotate(33deg);
+      transition: all 0.2s;
+    }
+
+    &:before {
+      width: 34px;
+      transform-origin: left bottom;
+      transform: rotate(-33deg);
+      transition: all 0.2s;
+    }
+  }
+}
+
+.sidebar__touch {
+  padding-top: 15px;
+  position: absolute;
+  width: 100%;
+  z-index: 2;
+  transform: translateY(-165px);
+  transition: 1s;
+  
+  @include w600 {
+    transform: translateY(-185px);
+    width: 70px;
+    right: 0px;
+  }
+
+  &--active {
+    transform: translateY(0);
+    transition: 1s;
+
+    @include w600{
+      transform: translateY(-20px);
+    }
+  }
+}
+
+.sidebar__menu {
+  text-align: center;
+
+  &-item{
+    padding: 5px 0;
+    background-color: #fff;
+
+    &:not(:last-child) {
+      border-bottom: 1px solid #000;
+    }
+  }
+
+  &-link {
+    display: block;
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.3);
+    line-height: 20px;
+    text-transform: uppercase;
+  }
+}
+
+.sidebar__search {
+  display: block;
+  width: 26px;
+  margin: 22px auto 0 auto;
+
+  @include w600 {
+    display: none;
+  }
+}
+
+
+
+.sidebar__icons {
+  position: absolute;
+  top: 710px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+
+
+  @include w600 {
+    display: none;
+  }
+}
+
+.sidebar__icon-link {
+  padding-bottom: 22px;
+}
+
+
+
+.main {
+  max-width: 1500px;
+  width: 100%;
+  border-left: 1px solid #000;
+
+  @include w600 {
+    max-width: 600px;
+    border-left: none;
+  }
+}
+
+.container {
+  padding: 0 50px;
+  max-width: 1500px;
+
+  @include w1024 {
+    padding: 0 30px;
+  }
+
+  @include w768 {
+    padding: 0 20px;
+  }
+
+  @include w600 {
+    padding: 0 10px;
+  }
+}
+
+.header {
+  background-image: url('../img/bg.png');
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  background-size: cover;
+  padding: 30px 0;
+  color: #fff;
+
+  @include w1024 {
+    padding: 20px 0 33px 0;
+  }
+
+  @include w600 {
+    background-image: url('../img/bg375.png');
+    background-position: top center;
+    padding: 11px 0 13px 0;
+  }
+}
+
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header__arrow-btn {
+  display: none;
+
+  @include w600{
+    display: block;
+  }
+}
+
+.header__menu {
+  width: 655px;
+
+  @include w1500 {
+    width: 504px;
+  }
+
+  @include w1350 {
+    width: 410px;
+  }
+
+  @include w1250 {
+    display: none;
+  }
+
+  &-item {
+    display: inline-block;
+    padding: 0 30px 10px 0;
+  
+    @include w1500 {
+      padding-right: 20px;
+    }
+  
+    &:nth-child(5) {
+      @include w1500 {
+        padding-right: 0;
+      }
+      
+      @include w1350 {
+        padding-right: 20px;
+      }
+    }
+  
+    &:nth-child(4) {
+      @include w1350 {
+        padding-right: 0;
+      }
+    }
+  }
+
+  &-link {
+    font-size: 18px;
+    line-height: 30px;
+    color: #fff;
+
+    @include w1500 {
+      font-size: 16px;
+    }
+  }
+}
+
+
+.header__descr {
+  width: 523px;
+  padding-top: 8px;
+  opacity: 0.6;
+  font-size: 12px;
+  line-height: 15px;
+  display: none;
+
+  @include w1600min {
+    display: block;
+  }
+
+  // альтернатива для скрипта
+  // &--active{
+  //   display: block;
+  // }
+    
+  &-img {
+    display: none;
+    padding-top: 11px;
+
+    @include w1024 {
+      display: block;
+    }
+
+    @include w600 {
+      display: none;
+    }
+  }
+}
+
+
+
+.logo {
+  display: flex;
+  align-items: flex-start;
+
+  @include w1024 {
+    align-items: center;
+  }
+
+  @include w600 {
+    position: absolute;
+    top: 5px;
+    left: 9px;
+    flex-direction: row-reverse;
+  }
+
+  &__title {
+    padding-right: 59px;
+
+    @include w1024 {
+      padding-right: 36px;
+    }
+
+    @include w600 {
+      padding-right: 0;
+      padding-left: 10px;
+    }
+  }
+}
+
+
+// для смены логотипа
+.logo1600{
+  display: none;
+
+  @include w1600min {
+    display: block;
+  }
+}
+
+.logo1024{
+  display: none;
+
+  @include w1024 {
+    display: block;
+  }
+
+  @include w600 {
+    display: none;
+  }
+}
+
+.logo375{
+  display: none;
+  
+  @include w600 {
+    display: block;
+  }
+}
+
+
+
+.title{
+  padding: 50px 0 40px 0;
+  color: #000000;
+  font-family: "TT Norms Bold";
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: -0.8px;
+  line-height: 38px;
+
+  @include w1250 {
+    padding: 40px 0 20px 0;
+  }
+
+  @include w890 {
+    padding: 30px 0 20px 0;
+  }
+
+  @include w725 {
+    padding: 20px 0;
+    font-size: 26px;
+    line-height: 30px;
+  }
+
+  @include w420 {
+    width: 300px;
+  }
+}
+
+.sub-title{
+  padding-bottom: 20px;
+  font-size: 20px;
+  line-height: 30px;
+  color: #000000;
+  
+  @include w1250 {
+    padding-bottom: 10px;
+  }
+
+  @include w725 {
+    font-size: 16px;
+    line-height: 20px;
+  }
+}
+
+.form__info-block{
+  padding-bottom: 40px;
+
+  @include w1250 {
+    padding-bottom: 20px;
+  }
+
+  @include w768 {
+    padding-bottom: 10px;
+  }
+
+}
+
+
+.form__item-wrap{
+  font-size: 24px;
+  height: 100%;
+  position: relative;
+  padding-bottom: 20px;
+
+  @include w1250 {
+    font-size: 20px;
+    padding-bottom: 10px;
+  }
+  
+  @include w725 {
+    font-size: 16px;
+  }
+
+  @include w365 {
+    font-size: 14px;
+  }
+
+  @include w340 {
+    font-size: 13px;
+  }
+}
+
+.form__items {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  .form__item-wrap{
+    flex-basis: 46.5%;
+
+    @include w1250 {
+      flex-basis: 46.66%;
+    }
+    
+    @include w890 {
+      flex-basis: 47.078%;
+    }
+    @include w725 {
+      flex-basis: 73.24%;
+    }
+  }
+}
+
+
+.form__item-input{
+  width: 100%;
+  padding: 18px 6px 20px 20px;
+  line-height: 30px;
+  outline: none;
+  border: 1px solid #000;
+
+  @include w1250 {
+    padding: 14px 6px 14px 20px;
+  }
+
+  @include w725 {
+    line-height: 20px;
+    padding: 14px 6px 14px 10px;
+  }
+
+  &:focus{
+    border: 1px solid #5600b1;
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+
+  &:hover{
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+
+  &::placeholder{
+    line-height: 30px;
+    color: transparent; // не видно, пока нет фокуса
+  }
+}
+
+.form__item-input--active{
+  padding: 24px 6px 14px 20px;
+
+  @include w1250 {
+    padding: 19px 6px 9px 20px;
+  }
+
+  @include w725 {
+    padding: 21px 6px 9px 10px;
+  }
+
+  &::placeholder{
+    color: #000;
+  }
+
+  &-error {
+    border: 1px solid #ff142e;
+  }
+}
+
+.form__item-label{
+  height: 100%;
+}
+
+
+.form__item-placeholder{
+  position: absolute;
+  top: 19px;
+  left: 21px;
+  line-height: 30px;
+  color: #000;
+  user-select: none; // предотвращение выделение текста
+  opacity: 0.3;
+  cursor: text;
+  transform: translate(0);
+  // transition: transform .25s ease,font-size .25s ease,-webkit-transform .25s ease;
+  transition: all .25s ease;
+  pointer-events: none; 
+
+  @include w1250 {
+    top: 15px;
+  }
+
+  @include w725 {
+    left: 11px;
+    line-height: 20px;
+  }
+}
+
+.form__item-placeholder--active {
+  top: 16px;
+  font-size: 16px;
+  opacity: 0.3;
+  line-height: 20px;
+  transform: translateY(-10px);
+
+  @include w1250 {
+    font-size: 15px;
+  }
+
+  @include w725 {
+    font-size: 13px;
+    line-height: 15px;
+  }
+
+  @include w365 {
+    font-size: 12px;
+  }
+}
+
+.placeholder-necessary{ // для обязательных полей
+  &::after{
+    content: "*";
+  }
+}
+
+
+.form__items-textarea {
+  resize: none;
+  height: 160px;
+
+  @include w1250 {
+    height: 120px;
+  }
+}
+
+.form__item-message{
+  display: none;
+  color: #ff142e;
+  font-size: 18px;
+  line-height: 30px;
+
+  &--visible{
+    display: block;
+  }
+
+  @include w1250 {
+    font-size: 16px;
+  }
+
+  @include w420 {
+    font-size: 14px;
+  }
+
+  // &--height{ 
+  //   display: block;
+  //   height: 30px;
+  // }
+}
+
+.form__item-empty{
+  display: block;
+  height: 30px;
+
+  @include w725 {
+    display: none;
+  }
+}
+
+.form__footer{
+  display: flex;
+  align-items: center;
+  padding-bottom: 100px;
+
+  @include w1024 {
+    padding-bottom: 72px;
+  }
+
+  @include w768 {
+    padding-bottom: 62px;
+  }
+
+  @include w725 {
+    flex-direction: column;
+    align-items: unset;
+    padding-bottom: 70px;
+  }
+
+
+  &-submit{
+    font-size: 24px;
+    line-height: 30px;
+    flex-shrink: 0;
+    color: #fff;
+    background-color: $purple;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    padding: 32px 101.5px 38px;
+    margin-right: 40px;
+
+    @include w1250 {
+      font-size: 20px;
+      padding: 25px 118px;
+    }
+
+    @include w940 {
+      padding: 25px 75px;
+    }
+
+    @include w725 {
+      font-size: 16px;
+      line-height: 20px;
+      padding: 20px 75px;
+      margin-right: 0;
+    }
+  }
+
+  &-text{
+    font-size: 18px;
+    line-height: 24px;
+    color: rgba(0, 0, 0, 0.3);
+    max-width: 650px;
+    width: 100%;
+
+    @include w1350 {
+      font-size: 16px;
+      line-height: 20px;
+    }
+
+    @include w1250 {
+      max-width: 345px;
+    }
+
+    @include w890 {
+      max-width: 270px;
+    }
+
+    @include w725 {
+      padding-top: 20px;
+      max-width: 100%;
+    }
+
+  }
+
+  &-span {
+    @include w1600min {
+      display: block;
+    }
+
+    @include w940 {
+      display: inline;
+    }
+  }
+
+  &-link{
+    display: inline;
+    color: $purple;
+    border-bottom: 1px solid $purple;
+  }
+
+}
+
