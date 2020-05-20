@@ -450,6 +450,14 @@
     padding-bottom: 10px;
   }
 
+  @include w725 {
+    &:nth-child(2) {
+      .form__items{
+        display: block;
+      }
+    }
+  }
+
 }
 
 
@@ -479,7 +487,7 @@
 
 .form__items {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   flex-wrap: wrap;
 
@@ -641,14 +649,6 @@
   // }
 }
 
-.form__item-empty{
-  display: block;
-  height: 30px;
-
-  @include w725 {
-    display: none;
-  }
-}
 
 .form__footer{
   display: flex;
